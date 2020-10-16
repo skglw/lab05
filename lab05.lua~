@@ -3,22 +3,31 @@ lgi = require 'lgi'
 gtk = lgi.Gtk
 gtk.init()
 
-
 bld = gtk.Builder()
 bld:add_from_file('lab05.glade')
 ui = bld.objects
 
 ui.wnd1.title = 'lab-05-zhuravleva'
 ui.wnd1.on_destroy = gtk.main_quit
+--ui.wnd2.on_destroy = gtk.main_quit
 
 function ui.btnOpen:on_clicked(...)
+ui.wnd2.title = 'lab-05-zhuravleva'
 ui.wnd2:show_all()
+end
+
+function ui.btnDialog:on_clicked(...)
+test = gtk.MessageDialog
+{type = gtk.MESSAGE_INFO,
+buttons = gtk.BUTTONS_OK_CANCEL,
+text ="u've opened dialog window",
+secondary_text =  'press ESC 2 times to close this'}
+test:run()
 end
 
 function ui.btnClose:on_clicked(...)
 ui.wnd2:hide()
 end
-
 
 ui.wnd1:show_all()
 gtk.main()
