@@ -16,12 +16,12 @@ ui.wnd2:show_all()
 end
 
 function ui.btnDialog:on_clicked(...)
-test = gtk.MessageDialog
+window = gtk.MessageDialog
 {type = gtk.MESSAGE_INFO,
 buttons = gtk.BUTTONS_OK_CANCEL,
 text ="u've opened dialog window",
 secondary_text =  'press ESC 2 times to close this'}
-test:run()
+window:run()
 end
 
 function ui.btnClose:on_clicked(...)
